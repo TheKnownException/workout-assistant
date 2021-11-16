@@ -10,6 +10,9 @@
   },
   "author": "Leonardo Isso <leoisso.work@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "@workout-assistant/eslint-config": "*"
   }
