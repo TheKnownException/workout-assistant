@@ -1,20 +1,15 @@
 import express from 'express'
-import cors from 'cors'
-import routes from './routes'
-import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
-import mongodb from './infra/mongodb'
+
+import mongodb from './infra/database/mongodb'
+import middlewares from './infra/middlewares'
 
 dotenv.config()
 
 const app = express()
+middlewares(app)
 
-app.use(cors())
-app.use(routes)
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-
-app.listen(3000, () => {
+app.listen(process.env.SERVER_PORT, () => {
   mongodb()
-  console.log('Server running')
+  console.log(`Server running at port ${process.env.SERVER_PORT}`)
 })
