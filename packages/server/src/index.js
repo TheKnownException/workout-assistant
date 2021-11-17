@@ -6,10 +6,10 @@ import middlewares from './infra/middlewares'
 
 dotenv.config()
 
-const app = express()
-middlewares(app)
+const server = express()
+middlewares(server)
 
-app.listen(process.env.SERVER_PORT, () => {
+server.listen(process.env.SERVER_PORT, () => {
   mongodb()
   console.log(`Server running at port ${process.env.SERVER_PORT}`)
 })
