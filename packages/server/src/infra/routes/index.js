@@ -1,5 +1,5 @@
 import userRoute from './user'
 
-export default server => {
-  userRoute(server)
+export default app => {
+  userRoute(app)
 }

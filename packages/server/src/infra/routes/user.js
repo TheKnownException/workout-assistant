@@ -1,9 +1,9 @@
-export default server => {
-  server.get('/', (request, response) => {
+export default app => {
+  app.get('/', (request, response) => {
     return response.json({ message: 'Hello World' })
   })
 
-  server.post('/posts', (request, response) => {
+  app.post('/posts', (request, response) => {
     return response.json({ message: 'New post' })
   })
 }
