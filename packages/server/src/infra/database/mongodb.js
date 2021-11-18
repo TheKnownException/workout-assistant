@@ -1,7 +1,9 @@
 import mongoose from 'mongoose'
 
+import { logServer } from '../log'
+
 export default () => {
   mongoose.connect(process.env.MONGODB_URI, () => {
-    console.log('Connected to MongoDB')
+    logServer('Connected to MongoDB')
   })
 }
