@@ -12,7 +12,9 @@ const catchError = err => {
 
 const createUser = async body => {
   try {
-    const userData = { ...body, role: user.constants.ROLES.user }
+    const role = user.constants.ROLES.user
+    const password = user.rules.encryptPassword(body.password)
+    const userData = { ...body, role, password }
     const newUser = await user.controller.create(userData)
     return newUser
   } catch (err) {
