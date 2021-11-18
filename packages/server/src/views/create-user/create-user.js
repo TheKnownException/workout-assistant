@@ -1,9 +1,9 @@
 import user from '../../domains/user'
 import error from '../../domains/error'
-import { error_log } from '../../infra/log'
+import { logError } from '../../infra/log'
 
 const catchError = err => {
-  error_log(err)
+  logError(err)
   if (err.code === 11000) {
     return { error: error.constants.EMAIL.ALREADY_EXISTS }
   }
