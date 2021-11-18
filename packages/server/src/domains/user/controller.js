@@ -3,7 +3,9 @@ import User from './model'
 const controller = {
   create: async data => {
     const user = new User(data)
-    return user.save()
+    const newUser = await user.save()
+    const { password, ...userData } = newUser._doc
+    return userData
   },
 
   getOne: async data => {
