@@ -18,8 +18,15 @@ describe('Views', () => {
       expect(result).toHaveProperty('email', user.email)
       expect(result).not.toHaveProperty('password')
     })
+
     it('Should try to create the same user again, and return error', async () => {
       const result = await createUser(user)
+      expect(result).toHaveProperty('error')
+    })
+
+    it('Should try to create the an user without email, and return error', async () => {
+      const { email, ...brokenUser } = user
+      const result = await createUser(brokenUser)
       expect(result).toHaveProperty('error')
     })
   })
