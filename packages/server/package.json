@@ -6,7 +6,8 @@
   "scripts": {
     "start": "DEBUG=app* nodemon src/index.js --exec babel-node",
     "start:silent": "nodemon src/index.js --exec babel-node",
-    "test": "jest --watch ./src"
+    "test": "jest --watch ./src",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.0",
