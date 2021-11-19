@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 const SALT_ROUNDS = 10
 
@@ -10,6 +11,14 @@ const rules = {
 
   comparePassword(password, hash) {
     return bcrypt.compareSync(password, hash)
+  },
+
+  createUserToken({ _id, email, name }) {
+    return jwt.sign({ _id, email, name }, process.env.JWT_SECRET)
+  },
+
+  parserUserToken(token) {
+    return jwt.verify(token, process.env.JWT_SECRET)
   }
 }
 
