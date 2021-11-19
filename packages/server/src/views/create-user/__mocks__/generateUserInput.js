@@ -1,18 +1,18 @@
-export default () => {
-  const generateRandomString = () => Math.random().toString(36).substring(2, 15)
-  const generateRandomLetters = () =>
-    generateRandomString().replace(/[^A-Za-z]+/g, '')
+import Chance from 'chance'
 
-  const email = `${generateRandomString()}@gmail.com`
-  const name = `${generateRandomLetters()} ${generateRandomLetters()}`
-  const password = generateRandomString()
+export default () => {
+  const chance = new Chance()
+
+  const email = chance.email()
+  const name = chance.name({ middle: true })
+  const password = chance.string({ length: 12 })
 
   return {
     email,
     password,
     name,
     bodyInfo: {
-      height: Math.floor(Math.random() * (200 - 120 + 1) + 120)
+      height: chance.integer({ min: 120, max: 210 })
     }
   }
 }
