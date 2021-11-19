@@ -1,14 +1,7 @@
 import createUser from '../create-user'
+import generateUserInput from '../__mocks__/generateUserInput'
 
-const email = `${Math.random().toString(36).substring(2, 15)}@gmail.com`
-const user = {
-  email,
-  password: 'password',
-  name: 'Test Ragdoll',
-  bodyInfo: {
-    height: 180
-  }
-}
+const user = generateUserInput()
 
 describe('Views', () => {
   describe('Create User', () => {
