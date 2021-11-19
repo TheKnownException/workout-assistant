@@ -10,6 +10,10 @@ const controller = {
 
   getOne: async data => {
     return User.findOne(data)
+  },
+
+  update: async (_id, updateData) => {
+    return User.findOneAndUpdate({ _id }, updateData, { new: true })
   }
 }
 
