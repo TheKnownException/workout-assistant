@@ -1,5 +1,6 @@
 import userRoute from './user'
+import authRoute from './auth'
 
 export default app => {
-  userRoute(app)
+  authRoute(app), userRoute(app)
 }
