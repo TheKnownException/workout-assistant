@@ -28,8 +28,9 @@ jobs:
         run: yarn install
       - name: Create env file
         run: |
-          touch .env
-          echo JWT_SECRET =${{ secrets.JWT_SECRET }} >> .env
-          echo MONGODB_URI_TESTS =${{ secrets.MONGODB_URI_TESTS }} >> .env
+          touch packages/server/.env
+          echo JWT_SECRET =$JWT_SECRET >> packages/server/.env
+          echo MONGODB_URI_TESTS =$MONGODB_URI_TESTS >> packages/server/.env
+          cat packages/server/.env
       - name: Test @workout-assitant/server
         run: yarn workspace @workout-assitant/server test:ci
