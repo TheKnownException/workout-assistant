@@ -1,11 +1,16 @@
 import express from 'express'
-import cors from 'cors'
-import routes from './routes'
+import dotenv from 'dotenv'
+
+import mongodb from './infra/database/mongodb'
+import middlewares from './infra/middlewares'
+import { logServer } from './infra/log'
+
+dotenv.config()
 
 const app = express()
+middlewares(app)
 
-app.use(cors())
-app.use(routes)
-app.listen(3333, () => {
-  console.log('Server running')
+app.listen(process.env.SERVER_PORT, () => {
+  mongodb()
+  logServer(`Server running at port ${process.env.SERVER_PORT}`)
 })
