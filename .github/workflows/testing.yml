@@ -6,8 +6,13 @@ on:
   pull_request:
     branches: [ stage ]
 
+env:
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  MONGODB_URI_TESTS: ${{ secrets.MONGODB_URI_TESTS }}
+
 jobs:
-  build:
+
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,8 +26,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: yarn install
+      - name: Create env file
+        run: |
+          touch .env
+          echo JWT_SECRET =${{ secrets.JWT_SECRET }} >> .env
+          echo MONGODB_URI_TESTS =${{ secrets.MONGODB_URI_TESTS }} >> .env
       - name: Test @workout-assitant/server
-        env:
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
-          MONGODB_URI_TESTS: ${{ secrets.MONGODB_URI_TESTS }}
         run: yarn workspace @workout-assitant/server test:ci
