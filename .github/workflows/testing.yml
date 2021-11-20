@@ -22,4 +22,4 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Test @workout-assitant/server
-        run: yarn workspace @workout-assitant/server test
+        run: yarn workspace @workout-assitant/server test:ci
