@@ -32,7 +32,6 @@ const login = async body => {
     const targetUser = await getAndValidateUser(email)
     validatePassword(password, targetUser.password)
     const updatedUser = await addTokenToUser(targetUser)
-    console.log(updatedUser)
     return { token: updatedUser.token }
   } catch (error) {
     logError(error)
