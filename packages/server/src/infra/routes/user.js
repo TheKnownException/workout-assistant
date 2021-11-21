@@ -9,7 +9,7 @@ export default app => {
     const { body } = request
     const data = await createUser(body)
     if (data.error) {
-      return response.status(400).json({ error: data.error })
+      return response.status(400).json(data)
     }
     response.status(201).json(data)
   })
