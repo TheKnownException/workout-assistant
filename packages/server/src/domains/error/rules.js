@@ -1,14 +1,12 @@
-import validations from './validations'
+import handler from './handlers'
+import parsers from './parsers'
 
 const rules = {
-  defaultCreateValidations: error => {
+  handleDefaultErrors: error => {
     try {
-      validations.missingPasswordFieldError(error)
-      validations.missingRequiredFieldError(error)
-      validations.duplicateConstraintError(error)
-      return error
+      parsers.defaultErrorParser(error)
     } catch (error) {
-      return { error: error.message }
+      return handler(error)
     }
   }
 }

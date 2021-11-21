@@ -1,17 +1,12 @@
 const EMAIL = {
-  ALREADY_EXISTS: 'Email já está cadastrado'
+  ALREADY_EXISTS: 'Email already exists'
 }
 
 const FIELD = {
-  IS_REQUIRED: field => `O campo ${field} é obrigatório`
-}
-
-const PASSWORD = {
-  IS_REQUIRED: 'O campo password é obrigatório'
+  IS_REQUIRED: field => `${field} is required`
 }
 
 export default {
   EMAIL,
-  FIELD,
-  PASSWORD
+  FIELD
 }
