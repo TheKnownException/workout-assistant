@@ -13,7 +13,7 @@ const createUser = async body => {
     return newUser
   } catch (err) {
     logError(err)
-    return error.rules.defaultCreateValidations(err)
+    return error.rules.handleError(err)
   }
 }
 
