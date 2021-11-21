@@ -1,7 +1,14 @@
-import handlers from './handlers'
+import handler from './handlers'
+import parsers from './parsers'
 
 const rules = {
-  handleError: error => ({ error: handlers(error) })
+  handleDefaultErrors: error => {
+    try {
+      parsers.defaultErrorParser(error)
+    } catch (error) {
+      return handler(error)
+    }
+  }
 }
 
 export default rules
