@@ -1,5 +1,5 @@
 import constants from './constants'
-import { ValidationError } from './errors'
+import { DuplicateConstraintError, ValidationError } from './errors'
 
 const handlers = {
   defaultHandler: error => ({ message: error.message }),
@@ -19,6 +19,10 @@ const handlers = {
 const CUSTOM_ERRORS_LITERAL = [
   {
     instance: ValidationError,
+    handler: err => handlers.validationErrorHandler(err)
+  },
+  {
+    instance: DuplicateConstraintError,
     handler: err => handlers.validationErrorHandler(err)
   }
 ]
