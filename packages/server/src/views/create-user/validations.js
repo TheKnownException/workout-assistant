@@ -6,7 +6,13 @@ const schema = Joi.object().keys({
   password: Joi.string().required(),
   name: Joi.string().required(),
   bodyInfo: {
-    height: Joi.number()
+    height: Joi.number(),
+    weightHistory: Joi.array().items(
+      Joi.object().keys({
+        date: Joi.date(),
+        weight: Joi.number()
+      })
+    )
   }
 })
 
