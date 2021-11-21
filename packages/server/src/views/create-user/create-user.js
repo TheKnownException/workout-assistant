@@ -1,9 +1,11 @@
+import inputValidation from './validations'
 import user from '../../domains/user'
 import error from '../../domains/error'
 import { logError } from '../../infra/log'
 
 const createUser = async body => {
   try {
+    inputValidation(body)
     const role = user.constants.ROLES.user
     const password = user.rules.encryptPassword(body.password)
     const userData = { ...body, role, password }
