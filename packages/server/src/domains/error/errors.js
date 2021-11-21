@@ -6,3 +6,11 @@ export class ValidationError extends Error {
     this.meta = meta || {}
   }
 }
+
+export class DuplicateConstraintError extends Error {
+  constructor(message, meta) {
+    super(message)
+    this.name = 'DuplicateConstraintError'
+    this.meta = meta || {}
+  }
+}
