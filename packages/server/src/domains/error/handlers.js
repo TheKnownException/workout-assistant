@@ -1,17 +1,12 @@
-import constants from './constants'
 import { DuplicateConstraintError, ValidationError } from './errors'
 
 const handlers = {
   defaultHandler: error => ({ message: error.message }),
 
-  validationErrorHandler: error => ({
-    message: error.message,
-    field: error.field
-  }),
-
-  duplicateConstraintError: error => {
-    if (error.code === 11000) {
-      throw new Error(constants.EMAIL.ALREADY_EXISTS)
+  validationErrorHandler(error) {
+    return {
+      message: error.message,
+      field: error.field
     }
   }
 }
@@ -23,7 +18,7 @@ const CUSTOM_ERRORS_LITERAL = [
   },
   {
     instance: DuplicateConstraintError,
-    handler: err => handlers.validationErrorHandler(err)
+    handler: err => handlers.defaultHandler(err)
   }
 ]
 
