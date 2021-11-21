@@ -26,7 +26,9 @@ const getHandler = error => {
   const literal = CUSTOM_ERRORS_LITERAL.find(
     ({ instance }) => error instanceof instance
   )
-  return literal ? literal.handler(error) : handlers.defaultHandler(error)
+  return {
+    error: literal ? literal.handler(error) : handlers.defaultHandler(error)
+  }
 }
 
 export default getHandler
