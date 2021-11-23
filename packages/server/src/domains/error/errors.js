@@ -14,3 +14,11 @@ export class DuplicateConstraintError extends Error {
     this.meta = meta || {}
   }
 }
+
+export class DataNotFound extends Error {
+  constructor(message, meta) {
+    super(message)
+    this.name = 'DataNotFound'
+    this.meta = meta || {}
+  }
+}
