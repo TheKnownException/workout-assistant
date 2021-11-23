@@ -16,12 +16,10 @@ const schema = Joi.object().keys({
   }
 })
 
-const inputValidation = body => {
+export const inputValidation = body => {
   const joiValidation = schema.validate(body)
   if (joiValidation.error) {
     const errorDetails = joiValidation.error.details[0]
     throw new ValidationError(errorDetails.message, errorDetails.context.key)
   }
 }
-
-export default inputValidation
