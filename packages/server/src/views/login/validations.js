@@ -1,5 +1,6 @@
 import Joi from 'joi'
 import error from '../../domains/error'
+import user from '../../domains/user'
 import { ValidationError, DataNotFound } from '../../domains/error/errors'
 
 const schema = Joi.object().keys({
@@ -22,7 +23,7 @@ export const validatePassword = (password, hash) => {
   }
 }
 
-export const validateUser = async targetUser => {
+export const validateUser = targetUser => {
   if (!targetUser) {
     throw new DataNotFound(error.constants.MODEL.NOT_FOUND('User'))
   }
