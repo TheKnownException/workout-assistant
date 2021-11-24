@@ -1,1 +1,0 @@
-web: yarn workspace @workout-assitant/server build && yarn workspace @workout-assitant/server start:prod
