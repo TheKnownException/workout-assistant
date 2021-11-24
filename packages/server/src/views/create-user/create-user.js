@@ -1,4 +1,4 @@
-import inputValidation from './validations'
+import { inputValidation } from './validations'
 import user from '../../domains/user'
 import error from '../../domains/error'
 import { logError } from '../../infra/log'

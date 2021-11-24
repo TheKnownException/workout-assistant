@@ -1,7 +1,7 @@
 import Chance from 'chance'
 
 import createUser from '../create-user'
-import generateUserInput from '../__mocks__/generateUserInput'
+import generateUserInput from '../../../domains/user/__mocks__/generateUserInput'
 
 const user = generateUserInput()
 const chance = new Chance()

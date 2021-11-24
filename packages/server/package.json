@@ -8,12 +8,14 @@
     "start:silent": "nodemon src/index.js --exec babel-node",
     "test": "jest --watch ./src",
     "test:coverage": "jest --coverage",
-    "test:ci": "jest"
+    "test:ci": "jest",
+    "test:teardown": "babel-node jest.teardown.js"
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
+    "bson": "^4.6.0",
     "chance": "^1.1.8",
     "cors": "^2.8.5",
     "debug": "^4.3.2",

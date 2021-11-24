@@ -8,8 +8,10 @@ const controller = {
     return userData
   },
 
-  getOne: async data => {
-    return User.findOne(data)
+  getOne: async (data, hasPassword) => {
+    return hasPassword
+      ? User.findOne(data).select('+password')
+      : User.findOne(data)
   },
 
   update: async (_id, updateData) => {
