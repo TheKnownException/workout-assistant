@@ -1,1 +1,1 @@
-web: yarn workspace @workout-assitant/server start
+web: yarn install && yarn workspace @workout-assitant/server start
