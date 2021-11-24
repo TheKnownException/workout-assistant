@@ -6,6 +6,8 @@
   "scripts": {
     "start": "DEBUG=app* nodemon src/index.js --exec babel-node",
     "start:silent": "nodemon src/index.js --exec babel-node",
+    "start:prod": "DEBUG=app* node dist/index.js",
+    "build": "rm -rf dist && babel ./src --out-dir dist --copy-files",
     "test": "jest --watch ./src",
     "test:coverage": "jest --coverage",
     "test:ci": "jest",
