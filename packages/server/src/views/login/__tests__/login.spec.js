@@ -24,18 +24,18 @@ describe('Views', () => {
       const { email, ...withoutEmail } = loginData(user)
       const result = await login(withoutEmail)
       expect(result).toHaveProperty('error')
-      expect(result.error).toMatch(/(.+) is required/g)
+      expect(result.error.message).toMatch(/(.+) is required/g)
     })
     it('Should try to login user without password and return error', async () => {
       const { password, ...withoutPassword } = loginData(user)
       const result = await login(withoutPassword)
       expect(result).toHaveProperty('error')
-      expect(result.error).toMatch(/(.+) is required/g)
+      expect(result.error.message).toMatch(/(.+) is required/g)
     })
-    it('Should try to login an unregistered user', async () => {
+    it('Should try to login an unregistered user and return error', async () => {
       const result = await login(loginData(unregisteredUser))
       expect(result).toHaveProperty('error')
-      expect(result.error).toMatch(/(.+) not found/g)
+      expect(result.error.message).toMatch(/(.+) not found/g)
     })
   })
 })
