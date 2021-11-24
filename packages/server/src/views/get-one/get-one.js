@@ -1,5 +1,6 @@
-import error from '../../domains/error'
 import { validateData } from './validations'
+import error from '../../domains/error'
+import { logError } from '../../infra/log'
 
 const getOne = async (domain, filter) => {
   try {
@@ -7,6 +8,7 @@ const getOne = async (domain, filter) => {
     validateData(data)
     return data
   } catch (err) {
+    logError(err)
     return error.rules.handleDefaultErrors(err)
   }
 }
