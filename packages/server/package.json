@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "DEBUG=app* nodemon src/index.js --exec babel-node",
+    "start": "DEBUG=app* node dist/index.js",
     "start:silent": "nodemon src/index.js --exec babel-node",
-    "start:prod": "DEBUG=app* node dist/index.js",
+    "start:dev": "DEBUG=app* nodemon src/index.js --exec babel-node",
     "build": "rm -rf dist && babel ./src --out-dir dist --copy-files",
     "test": "jest --watch ./src",
     "test:coverage": "jest --coverage",
