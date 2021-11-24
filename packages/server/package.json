@@ -8,7 +8,8 @@
     "start:silent": "nodemon src/index.js --exec babel-node",
     "test": "jest --watch ./src",
     "test:coverage": "jest --coverage",
-    "test:ci": "jest"
+    "test:ci": "jest",
+    "test:teardown": "babel-node jest.teardown.js"
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.0",
