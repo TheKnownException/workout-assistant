@@ -11,7 +11,7 @@ const FIELD = {
 }
 
 const MODEL = {
-  NOT_FOUND: model => `${model} not found`
+  NOT_FOUND: model => `${model || 'Domain'} not found`
 }
 
 export default {
