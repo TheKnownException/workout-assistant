@@ -10,7 +10,7 @@ dotenv.config()
 const app = express()
 middlewares(app)
 
-app.listen(process.env.SERVER_PORT, () => {
+app.listen(process.env.PORT, () => {
   mongodb()
-  logServer(`Server running at port ${process.env.SERVER_PORT}`)
+  logServer(`Server running at port ${process.env.PORT}`)
 })
