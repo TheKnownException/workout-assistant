@@ -8,7 +8,7 @@ const login = async body => {
 
   try {
     inputValidation(body)
-    const targetUser = await user.controller.getOne({ email: email })
+    const targetUser = await user.controller.getOne({ email: email }, true)
     validateUser(targetUser)
     validatePassword(password, targetUser.password)
     const updatedUser = await updateUserToken(targetUser)
