@@ -3,7 +3,7 @@ import { validateData } from './validations'
 
 const getOne = async (domain, filter) => {
   try {
-    const data = await domain.getOne(filter)
+    const data = await domain.controller.getOne(filter)
     validateData(data)
     return data
   } catch (err) {
