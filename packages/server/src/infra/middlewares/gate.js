@@ -2,7 +2,7 @@ import user from '../../domains/user'
 import getOne from '../../views/get-one/get-one'
 
 const gate = async (req, res, next) => {
-  const authorization = req.headers('authorization')
+  const authorization = req.headers.authorization
 
   if (!authorization) {
     return res.status(401).json({ error: 'No authorization header' })
@@ -15,7 +15,9 @@ const gate = async (req, res, next) => {
     return res.status(401).json({ error: 'Invalid token' })
   }
 
-  res.locals.user = currentUser
+  req.locals = req.locals
+    ? { ...req.locals, user: currentUser }
+    : { user: currentUser }
   next()
 }
 
