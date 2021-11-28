@@ -1,5 +1,7 @@
 import gate from '../middlewares/gate'
+
 import createUser from '../../views/create-user'
+import getUser from '../../views/get-user'
 
 export default app => {
   app.post('/user', async (request, response) => {
@@ -12,12 +14,9 @@ export default app => {
   })
 
   app.get('/user/:id', gate, async (request, response) => {
-    const { id: userId } = request.params
-    const {
-      locals: { user }
-    } = response
+    const { id } = request.params
+    const data = await getUser(id)
 
-    const data = { user, userId }
     if (data.error) {
       return response.status(400).json(data)
     }
