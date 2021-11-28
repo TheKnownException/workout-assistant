@@ -15,7 +15,7 @@ export default app => {
     const { id: userId } = request.params
     const {
       locals: { user }
-    } = request
+    } = response
 
     const data = { user, userId }
     if (data.error) {
