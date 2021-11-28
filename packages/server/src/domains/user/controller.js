@@ -1,4 +1,5 @@
 import User from './model'
+import { parseSelectList } from '../../utils/model.utils'
 
 const controller = {
   create: async data => {
@@ -14,8 +15,10 @@ const controller = {
       : User.findOne(data)
   },
 
-  update: async (_id, updateData) => {
-    return User.findOneAndUpdate({ _id }, updateData, { new: true })
+  update: async (_id, updateData, selections = []) => {
+    return User.findOneAndUpdate({ _id }, updateData, { new: true }).select(
+      parseSelectList(selections)
+    )
   }
 }
 

@@ -19,6 +19,11 @@ const rules = {
 
   parserUserToken(token) {
     return jwt.verify(token, process.env.JWT_SECRET)
+  },
+
+  getTokenFromAuthorizationHeader(authorization) {
+    const [, token] = authorization.split(' ')
+    return token
   }
 }
 
