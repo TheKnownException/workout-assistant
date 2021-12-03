@@ -21,9 +21,9 @@ describe('Views', () => {
       expect(result.token).toBe(undefined)
     })
     it('Should try to get one with a not existant user and return error', async () => {
-      const result = await getOne(user, { _id: fakeId })
-      expect(result).toHaveProperty('error')
-      expect(result.error.message).toMatch(/(.+) not found/g)
+      await expect(() => getOne(user, { _id: fakeId })).rejects.toThrow(
+        'User not found'
+      )
     })
   })
 })
