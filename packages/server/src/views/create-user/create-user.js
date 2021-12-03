@@ -7,8 +7,7 @@ const createUser = async body => {
   try {
     inputValidation(body)
     const role = user.constants.ROLES.user
-    const password = user.rules.encryptPassword(body.password)
-    const userData = { ...body, role, password }
+    const userData = { ...body, role }
     const newUser = await user.controller.create(userData)
     return newUser
   } catch (err) {
