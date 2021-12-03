@@ -14,8 +14,11 @@ class NodeMailer {
     })
   }
 
-  sendMail({ from, to, subject, html }, callback) {
-    return this.transporter.sendMail({ from, to, subject, html }, callback)
+  async sendMail({ to, subject, html }, callback) {
+    return await this.transporter.sendMail(
+      { from: process.env.EMAIL_USERNAME, to, subject, html },
+      callback
+    )
   }
 }
 
