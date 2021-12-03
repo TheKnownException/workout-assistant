@@ -1,4 +1,5 @@
 import NodeMailer from '../../infra/mail/mailer'
+import { logError } from '../../infra/log'
 
 import user from '../../domains/user'
 import error from '../../domains/error'
@@ -27,6 +28,7 @@ const createPasswordResetToken = async data => {
     await new NodeMailer().sendMail(emailData)
     return { success: true }
   } catch (err) {
+    logError(err)
     return error.rules.handleDefaultErrors(err)
   }
 }
