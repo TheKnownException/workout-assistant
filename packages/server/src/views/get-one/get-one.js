@@ -8,8 +8,7 @@ const getOne = async (domain, filter) => {
     validateData(data)
     return data
   } catch (err) {
-    logError(err)
-    return error.rules.handleDefaultErrors(err)
+    throw err
   }
 }
 
