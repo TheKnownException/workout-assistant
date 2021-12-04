@@ -1,3 +1,4 @@
+import error from '../../domains/error'
 import { DataNotFound } from '../../domains/error/errors'
 
 export const validateUser = targetUser => {
