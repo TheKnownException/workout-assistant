@@ -20,13 +20,11 @@ const updateUserPassword = async body => {
       token,
       password
     })
-    console.log(taregetPasswordResetToken)
     validateTargetPasswordResetToken(taregetPasswordResetToken)
 
     const targetUser = await getOne(user, {
       email: taregetPasswordResetToken.email
     })
-    console.log(targetUser)
     validateUser(targetUser)
 
     const encryptedPassword = user.rules.encryptPassword(password)

@@ -24,7 +24,6 @@ export default app => {
   app.put('/recover-password', async (request, response) => {
     const { body } = request
     const data = await updateUserPassword(body)
-    console.log(data)
     if (data.error) {
       return response.status(400).json(data)
     }
