@@ -9,6 +9,10 @@ on:
 env:
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
   MONGODB_URI_TESTS: ${{ secrets.MONGODB_URI_TESTS }}
+  EMAIL_SERVICE: ${{ secrets.EMAIL_SERVICE }}
+  EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+  EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+  FRONTEND_URL: ${{ secrets.FRONTEND_URL }}
 
 jobs:
 
