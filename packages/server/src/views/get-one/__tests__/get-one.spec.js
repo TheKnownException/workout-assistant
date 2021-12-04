@@ -20,10 +20,9 @@ describe('Views', () => {
       expect(result).toHaveProperty('_id')
       expect(result.token).toBe(undefined)
     })
-    it('Should try to get one with a not existant user and return error', async () => {
-      await expect(() => getOne(user, { _id: fakeId })).rejects.toThrow(
-        'User not found'
-      )
+    it('Should try to get one with a not existant user and return undefined', async () => {
+      const result = await getOne(user, { _id: fakeId })
+      expect(result).toBe(null)
     })
   })
 })
