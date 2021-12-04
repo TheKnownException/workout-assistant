@@ -1,5 +1,7 @@
 import Joi from 'joi'
-import { ValidationError } from '../../domains/error/errors'
+
+import error from '../../domains/error'
+import { DataNotFound, ValidationError } from '../../domains/error/errors'
 
 const schema = Joi.object().keys({
   token: Joi.string().required(),
